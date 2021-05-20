@@ -1,0 +1,1325 @@
+section-1 := introduction to dart and setup guide
+1.1 and 1.2 that is introduction or installation of dart
+
+section-2:= Getting started with dart programming
+...........2.1..........simple program
+
+void main(){
+  
+  print("Hello world");
+  print("This is my first application");
+  print(4);
+  print(12/3);
+  print(false);
+  print(12>3);
+}
+
+............2.2.........dart comments
+
+void main(){
+  
+  //this is single line comment
+  print("Hello world");
+  print("This is my first application");
+  print(4);
+  
+  print(false); // this is boolean expression
+ 
+  print(12/3); // this is arithmetic expression
+  
+  /* this is multiline 
+   * commment */
+  
+  print(12>3);
+}
+
+section-3 := Exploring datatypes and variables
+............3.1...........dart datatypes and variables
+built in data types 
+numbers -> int , double
+strings, boolean, list(array), runes(for expressing unicode characters in strings), maps, symbols
+all data types in dart are basically an objects therefore values are bydefault null
+var automatically takes values data type
+
+
+------
+
+void main()
+{
+  //Numbers: int
+  int score = 36;
+  var count = 49;
+  int haxValue = 0x2345bbb ;
+  print(score); 
+  print(count);
+  print(haxValue);
+  
+  //Numbers: double
+  double dscore = 23.3;
+  var dc = 8.4;
+  double exponents = 2.3e4;
+  print(dscore);
+  print(dc);
+  print(exponents);
+  
+  //Strings
+  String name = "harsh";
+  var sname = "harsh hirapara";
+  
+  //boolean
+  bool isValid = true;
+  var isnotValid = false;
+  
+  var nothing;
+  
+  print(name);
+  print(sname);
+  print(isValid);
+  print(isnotValid);
+  
+  print(nothing);  //Note: all data types in dart are objects
+  //therefore, its initial value is by default 'null'
+   
+}
+ 
+...............3.2.........Dart Strings, Literals and String Interpolation
+
+void main(){
+  //literals
+  var isCool = true;
+  int x = 2;
+  "john";
+  4.2;
+  
+  //various waus to define string literals in dart
+  String s1 = 'single';
+  String s2 = "double";
+  String s3 = 'it\'s easy';
+  String s4 = "it's easy";
+  
+  String s5 = "this is going to be a very long string" +
+    "this is just a demo string in dart programming language";
+  
+  //String interpolation: Use ["my name is $name"] instead of ['my name     //is'+ name]
+  String name = 'harsh';
+  
+  print("my name is $name");
+  print("the number of character in $name is ${name.length}");
+  
+  int l=10;
+  int b=20;
+  
+  print("the sum of $l and $b is ${l+b}");
+  print("the area of rectangle of $l and $b is ${l*b} ");
+  
+}
+
+...........3.3...........Dart defining constant using final and const keyword
+
+void main(){
+  
+  //final keyword
+  final cityName = 'surat';
+  //cityName = 'ahmedabad'; and it give us error message 
+  final String contryName = 'india';
+  //final variable can only be set once and it is initialized when accessed
+   
+  //const keyword
+  //const variable is implicitly final but it is compile time constant
+  //i.e it is initialized at compilation
+  const PI = 3.14;
+  const double gravity = 9.8;
+     
+}
+
+class Circle {
+  //instance variable can be final but can not be const
+  //if you make a constant at class level then make it static const
+  final color = 'red';
+  // const ccolor = 'yellow'; // gives error that only static fields can be declared as const
+  
+  static const ccolor = 'yellow';  
+}
+
+section-4 := conditional flow statement
+..............4.1..............Dart if else conditional statements
+
+void main(){
+ 
+  //if else statement
+  
+  var salary = 15000;
+  if(salary>20000){
+    print('you got promotion, congratulation!');
+  }
+  else{
+    print('you need to work hard');
+  }
+  
+  //if else ladder statement
+  
+  var marks = 60;
+  
+  if(marks>=90 && marks<=100){
+    print('A+ grade');
+  } else if(marks>=80 && marks<=90){
+    print('A grade');
+  } else if(marks>=70 && marks<=80){
+    print('B grade');
+  } else if(marks>=60 && marks<=70){
+    print('C grade');
+  } else if(marks>-40 && marks<=60){
+    print('D grade');
+  } else if(marks>=0 && marks<-40){
+    print('you have failed');
+  } else {
+    print('Invalid marks ,please try again!');
+  }
+}
+
+..........4.2.............Dart conditional Expressions : ternary operator in java
+void main(){
+  
+  //Conditional expressions
+  
+  //1.condition ? exp1 ? exp2;
+  //if condition is true then evaluate exp1 (and returns its value);
+  //otherwise evaluate and returns the value of exp2;
+  
+  int a=31,b=4;
+  int smallNumber = a<b ? a : b;
+  print('$smallNumber is small number');
+  
+  //2.expression1 ?? expression2
+  //if exp1 is not null then returns its value otherwise evaluate and returns the value of exp2;
+  
+  
+  var name = null;
+  String nameToPrint = name ?? 'hirapara';
+  print(nameToPrint);  
+}
+
+...........4.3..........Dart SWITCH and CASE conditional statements
+
+void main(){
+  
+ //Switch case statement : Applicable only for int and string 
+  //in other case like double or boolean its not work
+ 
+  String grade = 'F';
+  
+  switch(grade){
+    
+    case 'A': 
+      print('excellent grade of A');
+      break;
+    case 'B':
+      print('Very Good !');
+      break;
+    case 'C':
+      print('Good enough, but work hard');
+      break;
+    case 'F':
+      print('you have failed');
+      break;
+    default:
+      print('Invalid grade');
+          
+  }
+  
+}
+
+Section:-5 := Loop control statements
+..............5.1.............Dart Loops and Iterators: Loop Control Statements
+when to use for, while and do-while loop , for loop -> definite , while and do-while loop - indefinite
+for loop use when we know count of iteration
+and while and do-while loop use when we don't know count of iteration or when we iterate loop based on some condition that time
+difference between while and do-while loop is that in do-while loop atleast once code is running although condition is false
+in while condition check first and in do-while after first iteration condition is check
+
+............5.2..............Dart for loop and how it works internally
+void main(){
+  
+  //For loop
+  
+  //WAP to print even numbers between 1 to 10
+  for(int i=1; i<=10; i++){
+    if(i%2==0){
+      print(i);
+    }
+  }
+  
+  //for...in loop
+  List planetList = ["mercury", "venus", "earth", "jupiter", "mars", "saturn", "uranus", "naptune"];
+  
+  for(String planet in planetList){
+    print(planet);
+  }
+}
+
+.............5.3...........Dart WHILE Loop example and how it works internally.
+
+void main(){
+  
+  //while loop
+  //WAP to find the even numbers between 1 to 20
+  
+  var i=1;
+  while(i<=20){
+    if(i%2==0){
+      print(i);
+    }
+    i++;
+  }
+  
+}
+
+
+............5.4............Dart DO WHILE Loop and how it works internally
+
+void main(){
+  
+  //Do-while loop
+  //WAP to find the even numbers between 1 to 15
+  
+  int i=1;
+  do{
+    
+    if(i%2==0){
+      print(i);
+    }
+    i++;
+  }while(i<=15);
+  
+}
+
+..............5.5........... Dart BREAK Statement with Labelled FOR Loop
+
+void main(){
+  
+  //break keyword
+  //Using labels
+  
+  myOuterLoop: for(int i=1;i<=3;i++){
+    
+    myinnerLoop: for(int j=1;j<=3;j++){
+      print("$i $j");
+      
+      if(i==2 && j==2){
+        break myOuterLoop;
+      }
+    }
+  }
+  
+}
+
+.............5.6.............Dart CONTINUE Statement with Labelled FOR Loop	
+void main(){
+  
+  //break keyword
+  //Using labels
+  
+  Outer: for(int i=1;i<=3;i++){
+    
+    Inner: for(int j=1;j<=3;j++){
+          
+      if(i==2 && j==2){
+        continue Outer;
+      }
+       print("$i $j");
+    }
+  }
+  
+}
+
+
+Section:-6 := Exploring Functions or Methods
+..............6.1............Dart Functions or Methods. Syntax and Properties
+What is function? -> collection of statements grouped together to perform an operation
+functions in dart are objects
+-function can be assigned to a variable or passed as a parameter to other functions
+all functions in dart returns a value
+-if no return value is spercified then the function returns null
+specifying return type is optional but is recommanded as per code convention
+
+...............6.2.............Dart functions or methods example
+void main(){
+  //Objectives
+  //1.Define a function
+  //2.Pass parameters to a function
+  //3.Return value from a function
+  //4,Test that bydefault a function returns a null 
+  findPerimeter();  
+  passPerameterPerimeter(4,3);
+  int rectArea = getArea(10,6);
+  print("THe area of rectangle is $rectArea");
+}
+
+void findPerimeter(){
+  
+  //1.Define a function
+  int length = 2;
+  int breadth = 3;
+  
+  int perimeter = 2*(length*breadth);
+  print("The Perimeter is $perimeter");
+}
+
+void passPerameterPerimeter(int length, int breadth){
+  //2.Pass parameters to a function
+  int perimeter = 2*(length*breadth);
+  print("The Perimeter is $perimeter");
+}
+
+int getArea(int length,int breadth){
+  //3.Return value from a function
+  int area = length * breadth;
+  return area;
+}
+
+...............6.3...........Dart Short Hand Syntax | FAT ARROW | Functions Expressions
+void main(){
+  //Objective : Expression in function : short hand syntax
+  findPerimeter();  
+  passPerameterPerimeter(4,3);
+  int rectArea = getArea(10,6);
+  print("THe area of rectangle is $rectArea");
+}
+
+void findPerimeter(){
+  
+  //1.Define a function
+  int length = 2;
+  int breadth = 3;
+  
+  int perimeter = 2*(length*breadth);
+  print("The Perimeter is $perimeter");
+}
+
+void passPerameterPerimeter(int length, int breadth) =>   print("The Perimeter is ${2*(length*breadth)}");
+
+int getArea(int length,int breadth) => length * breadth;
+
+............6.4...........Dart optional positional parameters in functions //not working in dartpad
+void main(){
+  
+  printCities("New york", "New Delhi", "sydney");
+  print("");
+  printContries("USA");
+}
+
+//Required Parameter
+void printCities(String name1, String name2, String name3){
+  print(name1);
+  print(name2);
+  print(name3);
+}
+// Optional Positional Parameter
+void printContries(String name1, [String name2, String name3]){
+  print(name1);
+  print(name2);
+  print(name3);
+}
+
+..........6.5.........Dart optional Named parameters in functions //not working in dartpad
+Named Parameter : prevents error if there are large number of parameter
+void main(){
+
+  findVolume(10, breadth:5, height:20);
+  findVolume(19, height:29, breadth:5);
+  
+}
+
+findVolume(int length, {int breadth, int height}){
+  
+  print("length is $length");
+  print("breadth is $breadth");
+  print("height is $height");
+  print("volume is ${length*height*breadth});
+}
+
+..........6.6............Dart Optional Default Parameters in Function
+In this you can assign default values to parameters
+dartpad force to assign default value in named parameter 
+void main(){
+  findVolume(39);
+  findVolume(10, breadth:5, height:20);
+  findVolume(10, height:20, breadth:5);
+  
+}
+
+void findVolume(int length, {int breadth =10, int height=2}){
+  
+  print("length is $length");
+  print("breadth is $breadth");
+  print("height is $height");
+  print("volume is ${length*height*breadth}");
+}
+	
+Section:= 7:= Exception Handling
+..........7.1........ Dart Exception Handling | How to handle Exceptions in Dart (try, catch, on, finally)
+common exceptions -> DefferedLoadException, FormatException, IntegerDivisionByZeroException, IOException, IsolateSpawnException, Timeout
+
+//Objectives
+  //1.ON clause
+  //2.ON clause with Exception object
+  //3.Catch clause with Exception object and StackTrace Object
+  //4.Finally clause
+  //5.create our own custom Exception //7.2
+
+void main(){
+  
+  //print("case 1");// not work in dart pad
+  //CASE 1: when you know the exception to be thrown, use ON clause
+  //try{ 
+  //  int result = 12 ~/ 0;
+  //  print("the result is $result");
+  //} on IntegerDivisionByZeroException {
+  //  print("cannot divide by zero"); // in output it give "Unsupported operation: Result of truncating division is Infinity: 12 ~/ 0"
+  //}
+  
+  print(""); //add blank line
+  print("case 2");
+  //CASE 2:  when you don't know the exception , use catch clause
+  try{ 
+    int result = 12 ~/ 0;
+    print("the result is $result");
+  } catch(e){
+    print("the exception thrown is $e");
+  }
+  
+  print(""); //add blank line
+  print("case 3");
+  //CASE 3: Using STACK TRACE to know the events occured before exception was thrown
+  try{ 
+    int result = 12 ~/ 0;
+    print("the result is $result");
+  } catch(e){
+    print("the exception thrown is $e");
+  }
+  
+  print(""); //add blank line
+  print("case 4");
+  //CASE 4: Whether there is an Exception or not, FINALLY clause is always executed
+  try{ 
+    int result = 12 ~/ 0;
+    print("the result is $result");
+  } catch(e){
+    print("the exception thrown is $e");
+  } finally{
+    print("This is FINALLY clause and is always executed");
+  }
+  
+  ............7.2........Dart Custom Exception Class example
+  //print(""); //add blank line
+  //print("case 5");
+  //CASE 5: Custom Exception
+  //try{
+  //  depositMoney(-200);
+  //} catch(e){
+  //  print(e.errorMessage()); // dartpad throw error The method 'errorMessage' isn't defined for the class 'Object'.'Object' is from 'dart:core'
+  //}
+}
+
+//class DepositException implements Exception{
+//  String errorMessage(){
+//    return "you cannot enter amount less than 0";
+//  }
+//}
+
+//void depositMoney(int amount){
+//  if(amount<0){
+//    throw new DepositException();
+//  }
+//}
+
+
+Section:= 8 := Object oriented Dart : Getting Started
+........8.1............Dart Class, Objects, Instance and reference Variable example
+void main(){
+  
+  var student1 = Student(); //One object of class Student, student1 is reference variable
+  student1.id = 01;
+  student1.name = "Harsh";
+  print("${student1.id} and ${student1.name}");
+  student1.study();
+  student1.sleep();
+  
+  var student2 = Student(); //One object of class Student, student2 is reference variable
+  student2.id = 02;
+  student2.name = "Darshan";
+  print("${student2.id} and ${student2.name}");
+  student2.study();
+  student2.sleep();
+}
+
+//Define states(properties) and behavior of a student
+class Student{
+  
+  int id=0;   //Instance or a field variable ,default value is 0
+  String name = "Nothing"; //Instance or a field variable , default value is Nothing
+  
+  void study(){
+    print("${this.name} is now studying");
+  }
+  
+  void sleep(){
+    print("${this.name} is now sleeping");
+  }
+}
+
+...........8.2..........Dart Constructors: Default, Named and Parameterised Constructor
+properties of constructors
+-used to create objects
+-you can initialize your instance or field variables within constructors
+-you cannot have both default and parameterized constructors at the same time
+-you can have as many Named constructor as you want to
+
+
+//Objectives
+//1.Default costructor
+//2.Parameterized constructor
+//3.Named constructor
+//4.Constant constructor //this is not used practically much in dart so that its not covered in this.
+
+void main(){
+ 
+  Student student1 = Student();
+  /*Student student1 = Student(01,"Harsh"); //One object, student1 is reference variable
+  print("${student1.id} and ${student1.name}");
+  student1.study();
+  student1.sleep();*/
+  
+  /*Student student2 = Student(02,"Darshan"); //One object, student1 is reference variable
+  print("${student2.id} and ${student2.name}");
+  student2.study();
+  student2.sleep();*/
+  
+  var student3 = Student.myCustomConstructor();
+  student3.id=03;
+  student3.name="Nikunj";
+  print("${student3.id} and ${student3.name}");
+  
+  var student4 = Student.myAnotherNamedConstructor(04,"Riyal");
+   print("${student4.id} and ${student4.name}");
+  
+  
+}
+
+//Define states(properties) and behavior of a student
+class Student{
+  
+  int id=0;   //Instance or a field variable ,default value is 0
+  String name = "Nothing"; //Instance or a field variable , default value is Nothing
+  
+  Student() {           //Default cosnstructor
+    print("this is default constructor");
+  } 
+  
+  //Student(this.id, this.name);      //parameterized constructor
+  
+  Student.myCustomConstructor(){     //Named constructor
+    print("this is my custom constructor");
+  }
+  
+  Student.myAnotherNamedConstructor(this.id, this.name);//Named constructor  
+  
+  void study(){
+    print("${this.name} is now studying");
+  }
+  
+  void sleep(){
+    print("${this.name} is now sleeping");
+  }
+}
+
+...........8.3...........Dart Class, Objects, Constructors, Instance & Field Variables examples
+overview of class,objects, constructors, instance and field variables examples
+
+Section:=9 :=More on Object oriented Dart
+
+..............9.1..........Dart GETTER and SETTER | Private Instance variables
+//Objectives
+//1.Default Getter and Setter
+//2.Custom Getter and Setter
+//3.Private Instance Variable
+
+void main(){
+  var student1 = Student();
+  student1.name = "Harsh"; // calling default setter to set value
+  print(student1.name);   // calling default getter to get value
+  
+  student1.percentage= 443.0;  // calling custom setter to set value
+  print(student1.percentage);  // calling custom getter to get value
+  
+}
+
+class Student{
+  String name="null"; // Instance variable with default getter and setter
+  
+  double _percent=0;  // private instance variable for its own library
+  
+  void set percentage(double marksSecured) => _percent= (marksSecured/500)*100;
+  // fat arrow or shorthand method  
+  double get percentage => _percent;
+  
+}
+
+...........9.2...........Dart INHERITANCE Explanation. Object Oriented Programming in Dart
+Inheritance:-
+-Inheritance is a mechanism in which one object aquires properties of its parent class object
+-super class of any class is object:
+ provide default implementation of :
+ -toString(), returns the String representation of the object
+ -hashCode Getter, returns the hash code of an object
+ -operator ==, to compare two objects
+
+Advantages:
+code reusability, method overriding, cleaner code: no repetation
+
+..............9.3........Dart Inheritance Demo. Object Oriented Dart
+//Objectives
+//1,Exploring Inheritance
+
+void main(){
+  
+  var dog = Dog();
+  dog.breed="Labrador";
+  dog.color="Black";
+  dog.bark();
+  dog.eat();
+  
+  var cat = Cat();
+  cat.color = "White";
+  cat.age = 6;
+  cat.meow();
+  cat.eat();
+  
+  var animal = Animal();
+  animal.color= "brown";
+  animal.eat();
+}
+
+class Animal{
+  
+  String color="null";
+  
+  void eat(){
+    print("Eat!");
+  }
+}
+
+class Dog extends Animal{
+  
+  String breed="null";
+  
+  void bark(){
+    print("Bark!");
+  }
+}
+
+class Cat extends Animal{
+  
+  int age=0;
+  
+  void meow(){
+    print("Meow!");
+  }
+}
+
+............9.4..........Dart Method Overriding: Polymorphism.
+//Objectives
+//1,Exploring Inheritance
+//method overriding := method overriding is a mechanism by which the child class redefines a method in its parent class.
+
+void main(){
+  
+  var dog = Dog();
+  dog.eat();
+  
+  print(dog.color);
+  
+}
+
+class Animal{
+  
+  String color="brown";
+  
+  void eat(){
+    print("Animal is Eating");
+  }
+}
+
+class Dog extends Animal{
+  
+  String breed="null";
+  //String color="black";
+  
+  void bark(){
+    print("Bark!");
+  }
+  void eat(){
+    super.eat();
+    print("Dog is Eating");
+  }
+}
+
+.............9.5............Dart Constructors in Inheritance: Default and Named Constructors.
+points to note:
+-By default constructor in subclass call's the superclass's no-argument constructor.
+-Parent class constructor is always called before child class constructor 	
+-If default constructor is missing in parent class, then you must manually call one of the constructor in super class
+
+//Objectives
+//1,Inheritance with default constructor and perameterized constructor
+//2.Inheritamce with named constructor
+
+void main(){
+  
+  var dog1 = Dog("Labrador","Black");
+  print(dog1.breed);
+  print(dog1.color);
+  print("");
+  
+  var dog2 = Dog("Pug", "brown"); 
+  print(dog2.breed);
+  print(dog2.color);
+  print("");
+  
+  var dog3 = Dog.myDogNamedConstructor("German Shepherd","Black-Brown"); 
+  print(dog3.breed);
+  print(dog3.color);
+}
+
+class Animal{
+  
+  String color="brown";
+  
+  Animal(String color){
+    this.color=color;
+    print("Animal class constructor");
+  }
+  
+  Animal.myAnimalNamedConstructor(String color){
+    this.color=color;
+    print("Animal class named constructor");
+  }
+
+}
+
+class Dog extends Animal{
+  
+  String breed="null";
+ 
+  Dog(String breed,String color) : super(color){
+    this.breed = breed;
+    print("Dog class constructor");
+  }
+  
+  Dog.myDogNamedConstructor(String breed,String color) : super.myAnimalNamedConstructor(color){
+    this.breed=breed;   
+    print("Dog class named constructor");
+  }
+  
+}
+
+............9.6...........Dart Abstract Class and Abstract Method Example
+Abstract method
+->To make a method abstract, use semicolon(;) instead of method body
+->Abstract method can only exist with Abstract class
+->You need to override Abstract methods in sub-class
+
+Abstract class
+->Use abstract keyword to declare abstract class
+->abstract class can have abstract methods, normal methods and instance variables as well
+->the abstrct class cannot be instantiated, you cannot create objects
+
+//Objectives
+//1.Abstract Method
+//2.Abstract class
+
+void main(){
+  
+  //var shape = Shape();  // Error, You cannot instantiated abstract class
+  var rectangle = Rectangle();
+  rectangle.draw();
+  
+  var circle = Circle();
+  circle.draw();
+}
+
+abstract class Shape{
+  int x=0;
+  int y=9;
+  
+  void draw();   //Abstract method
+  
+  void myNormalFunction(){
+    //Some shape
+  }
+}
+
+class Rectangle extends Shape{
+  void draw(){
+    print("drawing rectangle........");
+  }
+}
+
+class Circle extends Shape{
+  void draw(){
+    print("drawing circle........");
+  }
+}
+
+...........9.7............Dart INTERFACE ( implements keyword ) Example. 
+->Dart does not have any special syntax to declare an interface.
+-> An interface in dart is a Normal class
+-> An interface is used when you need concrete implementation of it's function within its sub-class
+  -- it is mandatory to override all methods in the implementing class
+-> You can implement multiple classes
+  -- you Cannot extend multiple classes during Inheritance
+
+//Objectives
+//1.Interface
+
+void main(){
+  var tv = Television();
+  tv.volumeUp();
+  tv.volumeUp();
+}
+
+class Remote{
+  
+  void volumeUp(){
+    print("......Volume up from Rwmote........");
+  }
+  
+  void volumeDown(){
+    print(".....Volume down to Remote......");
+  }
+  
+}
+
+class AnotherClass{
+  void justAnotherMethod(){
+    //code
+  }
+}
+
+//Here, Remote acts as an interface 
+class Television implements Remote,AnotherClass{
+  
+  void volumeUp(){
+    //super.volumeUp(); // this statement throw an error bcz we use implements keyword , if we use extends then its work fine
+    print(".....Volume up from Television");
+  }
+  
+  void volumeDown(){
+    print(".....Volume down to Television");
+  }
+  
+  void justAnotherMethod(){
+    print("some code");
+  }
+}
+
+...........9.8...........Dart STATIC variables and methods
+static keyword
+->static variables are also known as class variables
+->static methods are also known as class methods
+
+->static variables are lazily initialized
+-i.e they are not initialized until they are used in program
+-so they consume memory only when they are used
+
+->static methods are nothing to do with class object or instance
+-you cannot use this keyword within a static keyword
+
+->From a static method
+-you can only access static methods and static variables
+-but you cannot instance normal instance variables and methods of the class
+
+//Objectives
+//1.Static Methods and variables
+
+void main(){
+  
+  var circle1 = Circle();
+ // circle1.pi;     //4 bytes
+   var circle2 = Circle();
+  // circle2.pi;     //4 bytes
+  
+  var circle = Circle();
+ // circle.calculateArea(); // not allowed in dart bcz it is static method and we access it via class instance that is not allowed in dart
+  //total 8 bytes
+  //print(Circle.pi);  //only 4 bytes  //No more memory will be allocated
+  
+  //Circle.calculateArea();
+}
+
+class Circle{
+  static const double pi= 3.14; //const keyword use value of always fix or constant we cannot change it later.
+  static int maxRadius = 5;
+  
+  String color="null";
+  
+  static void calculateArea(){
+    print("some code to calculate area of circle");
+   // myNormalFunction(); //Not allowed to call instance function
+    //this.color;         //You cannot use 'this' keyword and cannot access instance variables
+  }
+  
+  void myNormalFunction(){
+    Circle.calculateArea();
+    this.color= "Red";
+    print(pi); //bcz we are within a same clasa that's why we access them directly without class name and dot operator
+    print(maxRadius);
+  }
+}
+
+Section :10:= Functional Programming in dart
+..............10.1.............Dart Functional Programming: Lambda Expression Tutorial
+Lambda Expression are also known as annonymous function or a lambda function or Nameless function
+-A function without a name 
+-Also known as anonymous function or lambda
+
+NOTE: A Function in dart is an object
+-int sum=2;
+-String message = "Hello";
+-Function addNumbers = //some value;
+
+//Objectives
+//1.Lambda Functions
+//Note: A function in dart is object
+
+void main(){
+  
+  //1st way
+  Function addTwoNumbers = (int a, int b) {
+                            int sum = a + b;
+                            print(sum);
+                            };
+  
+  var multiplyByFour = (int number) {
+                       return number * 4;
+                       };
+  
+  // 2nd way: Function Expression:Using short harnd syntax
+  Function addNumbers = (int a, int b) => print(a+b);
+
+var multiplyFour = (int number) => number*4;
+
+//calling lambda function
+addTwoNumbers(3,5);
+print(multiplyByFour(5));
+
+addNumbers(3,45);
+print(multiplyFour(25));
+}
+
+..........10.2.........Functional Programming in Dart: Higher-Order Functions and Lambda Expression Tutorial
+Higher order function
+->can accept function as a parameter
+->can return a function
+->or can do both
+
+//Objectives
+//1.Higher-order function:
+// How to pass function as a parameter?
+// How to return a function from another function?
+
+void main(){
+  
+  //Example one: passing function to higher order function
+  Function addNumbers = (a,b) => print(a+b);
+  someOtherFunction("Hello", addNumbers);
+  
+  // Example two : Receiving function from Higher order function
+  var myFunc = taskToPerform();
+  print(myFunc(10));  //multiplyFour(10); // number*4 // 10*4 // output=40
+  
+}
+
+//Example One: Accepts function as parameter
+void someOtherFunction(String message, Function myFunction){
+  print(message);
+  myFunction(2,4);      //addNumbers(2,4) // print(a+b); //print(2+4); //output:6
+}
+
+// Example Two : Returns a function
+Function taskToPerform() {      //Higher-order function
+  Function multiplyFour = (int number) => 4*number;
+  return multiplyFour;
+}
+
+.........10.3........Functional Programming in Dart: Lexical Closures Tutorial
+closures:
+-closure is a special function
+-within a closure you can mutate(modify) the values of variables present in the parent scope
+-in java 8, you are not allowed to modify parent scope variables
+
+//Objectives
+//1.closures
+
+void main(){
+//   Defination 1:
+//   A closure is a function that has access to the parent scope, even after the scope has closed
+  
+  String message = "Dart is good";
+  
+  Function showMessage = () {
+    message = "Dart is awesome";
+    print(message);
+  };
+  
+  showMessage();
+  
+//   Defination 2: A closure is a function object that has access to variables in its lexical scope, even when the function is used outside of its original scope
+  
+  Function talk = () {
+    String msg = "Hi";
+   
+    Function say = () {
+      msg = "Hello";
+      print(msg);
+    };
+    return say;
+  };
+    Function speak = talk();
+    speak();    //talk()    //say()     //print(msg)    //"Hello"
+  
+}
+
+Section := 11:= Dart Collection Frameworks
+..............11.1.........Dart Collections: Arrays or LIST as Fixed-length List. Dart for Flutter
+List:
+-IN dart array is known as List
+Ordered Collection
+-Elements are ordered in sequence
+List types:
+->Fixed-length List :- length once define cannot be changed
+->Growable List :- Length is dynamic
+//Objectives
+//1.Fixed-length List
+
+void main(){
+  //Fixed-length List
+  List<int> numberList = List.filled(5,0); //List(5); is not supported in dart pad now because of avoidance of null so now we use filled or generate method to define fixed length list  
+  // Elements:  0  0  0  0  0 
+  // Index   :  0  1  2  3  4 
+ 
+  numberList[0]=34; //insert operation
+  numberList[1]=23;
+  numberList[3]=43;
+  numberList[4]=35;
+  // Elements:  34 23 0  43 35 
+  // Index   :  0  1  2  3  4 
+  numberList[3]=25; //update operation
+  // Elements:  34 23 0  25 35 
+  // Index   :  0  1  2  3  4 
+   
+  //numberList[3]=null; //not supported null value in list
+  print(numberList[3]);
+//   numberList.add(24);        //not supported in fixed-length list
+//   numberList.remove(43);     //not supported in fixed-length list
+//   numberList.removeAt(3);     //not supported in fixed-length list
+//   numberList.clear();        //not supported in fixed-length list
+  print("");
+  for(int element in numberList){    //Using individual elements(objects)
+    print(element);
+  }
+  print("");
+  
+  numberList.forEach((element) => print(element));  //Using lambda
+  print("");
+  
+  for(int i=0;i<numberList.length;i++){     //Using index
+    print(numberList[i]);
+  }
+    
+}
+.............11.2...........Dart Collections: Arrays as List: Growable List. Dart for Flutter
+//Objectives
+//1.Growable list
+
+void main(){
+  //Growable list
+  List<int> numberList = [34,23,0]; //List(); is not supported in dart pad now because of avoidance of null so now we use filled or generate method to define fixed length list  
+  // Elements:  34 23 0
+  // Index   :  0  1  2 
+  numberList.add(24); //insert operation
+  numberList.add(63);
+  // Elements:  34 23 0  24 63
+  // Index   :  0  1  2  3  4 
+  numberList[3]=25; //update operation
+  // Elements:  34 23 0  25 63 
+  // Index   :  0  1  2  3  4 
+   
+  //numberList[3]=null; //not supported null value in list
+  print(numberList[3]);    
+  numberList.remove(23);     //remove that value provided element
+  // Elements:  34 0  25 63 
+  // Index   :  0  1  2  3  
+  numberList.removeAt(2);  // remove element at provided index  
+  // Elements:  34 0  63 
+  // Index   :  0  1  2 
+        
+  print("");
+  for(int element in numberList){    //Using individual elements(objects)
+    print(element);
+  }
+  print("");
+  
+  numberList.clear();    // remove all elements in the list
+  
+  numberList.forEach((element) => print(element));  //Using lambda
+  print("");
+  
+  for(int i=0;i<numberList.length;i++){     //Using index
+    print(numberList[i]);
+  }
+    
+}
+
+................11.3...........Dart Collections: Set and HashSet. Dart Tutorial for Flutter
+Set :=
+->Unordered collection of unique item
+	- it does not contain duplicate elements
+->You cannot get element by INDEX, since the items are unordered
+->HashSet:-
+	-implementation of unorderd set
+	-it is based on hash-table based Set implementation
+
+//Objectives
+//1.Sets
+// --> Unordered collection
+// --> All elements are unique
+
+void main(){
+  
+  Set<String> countries = Set.from(["usa","uk","canada","india"]);
+  countries.add("russia");
+  countries.add("china");
+  
+  for(String element in countries){    //Using individual elements(objects)
+    print(element);
+  }   print("");
+  countries.forEach((element) => print(element));  //Using lambda
+  
+  Set<int> numberSet = Set();     //method 2: Using constructor
+  numberSet.add(24); //insert operation
+  numberSet.add(23);
+  numberSet.add(58); //insert operation
+  numberSet.add(66);  
+  
+  numberSet.add(23);  //Duplicate entries are ignored
+  numberSet.add(23);  //again ignored
+  
+  print("");
+  print(numberSet.contains(56));  //  returns true if the element is found in the Set
+  print(numberSet.remove(58));    //  returns true if the element is founded and deleted
+  print(numberSet.isEmpty);   //  returns true if the Set if empty
+  print(numberSet.length);    //  returns number of element in Set
+  //numberSet.removeAt(2);  // remove element at provided index not working in case of set bcz it have not an index   
+  
+  
+  print("");
+  for(int element in numberSet){    //Using individual elements(objects)
+    print(element);
+  }
+  print("");
+
+//   numberSet.clear();    // remove all elements in the list
+  
+  numberSet.forEach((element) => print(element));  //Using lambda
+  print("");
+  
+//   for(int i=0;i<numberList.length;i++){     //Using index this method is not applicable for set because it have not an index.
+//     print(numberList[i]);
+//   }
+    
+}
+
+...........11.4............Dart Collections: Map and HashMap- Dart Tutorial for Flutter
+-> It is unordered collection of key-value pair
+-> key-value can be of any object type
+	-each key in a map is unique
+	-the value can be repeated
+-> Commonly called as hash or dictionary
+-> size of map is not fixed, it can increase or decrease as per the number of elements
+-> HashMap
+	-Implementation of HashMap, Based on hash-table
+
+//Objectives
+//1.Maps
+// --> KEY has to be unique 
+// --> VALUE can be duplicate
+
+void main() {
+  
+  Map<String, int> countryDialingCode = {     //Method 1: Using literals
+    "usa": 1,
+    "india": 91,
+    "pakistan": 92
+  };
+  countryDialingCode.forEach((key,value) => print(' key "$key" = value "$value"'));
+  print("");
+  
+  Map<String, String> fruits = Map();    // method 2: Using costructor
+  fruits["apple"] = "red";
+  fruits["banana"] = "yellow";
+  fruits["guava"] = "blue";
+  
+  print(fruits.containsKey("apple"));  //returns a true if the key is present in the map
+  print(fruits.update("apple", (value) => "white")); //update the value of given key
+  print(fruits.remove("apple")); //remove key and its value and returns its value
+  print(fruits.isEmpty); //returns true if the map is empty
+  print(fruits.length);   //returns number of elements in map
+//   fruits.clear(); //delete all elements
+  
+  print("");
+  print(fruits["apple"]);       //output null after remove from map
+  print("");
+  
+  for(String key in fruits.keys){     //print all keys
+    print(key);
+  } print("");
+  for(String value in fruits.values){   //print all values
+    print(value);
+  }
+   print("");
+  fruits.forEach((key,value) => print(' key "$key" = value "$value"'));
+}
+
+Section := 12 
+................12.1.........Dart Callable Class - Call Class like a Function. Dart Tutorial for Flutter
+Callable class:
+->when dart class is called like a function
+	-implement call() function
+
+//Objectives
+//1.Callable class
+// --> class treated as a function
+// --> implement call() method
+
+void main() {
+  var personOne = Person();
+  var msg = personOne(20,"Harsh");
+  print(msg);
+}
+
+class Person{
+  
+  String call(int age, String name){
+    return "the name of the person is $name and age is $age";
+  }
+}
+
+Section := 13 := Dart Programming for Flutter: Beginners Tutorial [ COURSE SUMMARY ]
+->section 1 and 2 : Installation and first app
+->section 3,4 and 5 : Built-in data types, conditional statements, loop control statements
+->section 6,7 : Functions and methods, Exception handling
+->section 8,9 : oops concepts and inheritance 
+->section 10 : functional programming
+->section 11 : dart collection framework
+
