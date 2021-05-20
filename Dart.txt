@@ -168,9 +168,9 @@ void main(){
     print('B grade');
   } else if(marks>=60 && marks<=70){
     print('C grade');
-  } else if(marks>-40 && marks<=60){
+  } else if(marks>=40 && marks<=60){
     print('D grade');
-  } else if(marks>=0 && marks<-40){
+  } else if(marks>=0 && marks<=40){
     print('you have failed');
   } else {
     print('Invalid marks ,please try again!');
